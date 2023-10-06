@@ -1,3 +1,5 @@
+package com.mycompany.pa;
+
 public class Contact implements Comparable  {
     private String name ; 
     private String phoneNumber;
