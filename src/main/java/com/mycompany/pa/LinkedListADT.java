@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.pa;
+public class LinkedListADT <T extends Comparable<T>>{
+    private Node<T> head ; 
+    private Node<T> current ;
+    int size ;
 
-/**
- *
- * @author BlueS
- */
-public class LinkedListADT {
-    
-}
+ public LinkedListADT() {
+     head = current = null ;
+     
+ }
+ public boolean empty() {
+     return head == null ;
+     
+ }
