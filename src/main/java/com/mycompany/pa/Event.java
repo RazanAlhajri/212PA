@@ -1,3 +1,4 @@
+package com.mycompany.pa;
 import java.util.Date;
 
 public class Event implements Comparable<Event>  {
