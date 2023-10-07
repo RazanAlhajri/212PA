@@ -1,14 +1,14 @@
 package com.mycompany.pa;
 import java.util.Date;
 
-public class Event implements Comparable<Event>  {
-String title;
-Date date;
-String time;
-String location;
-LinkedListADT <String> ContactNames;
+public class Event implements Comparable<Event>  
+{
+   String title;
+   Date date;
+   String location;
+   LinkedListADT <String> ContactNames;
 
-    public Event(String title, Date date, String time, String location, <any> ContactNames) {
+   public Event(String title, Date date, String time, String location, <any> ContactNames) {
         this.title = title;
         this.date = new Date(date);
         this.time = time;
