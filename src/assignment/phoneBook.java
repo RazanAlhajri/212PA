@@ -1,16 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package assignment;
 
-/**
- *
- * @author HUAWEI
- */
+import java.util.Scanner;
+import java.util.Date;
+
+
 public class phoneBook {
+    public static Scanner in = new Scanner (System.in);
     private LinkedListADT <Contact> contactlist;
-     private LinkedListADT<Event> events;
+    private LinkedListADT<Event> events;
 
     public phoneBook(){
         contactlist = new LinkedListADT ();
@@ -18,26 +16,39 @@ public class phoneBook {
     }
 
     
-    public boolean contactexist(String Name , String phoneNumber){
-        Node current = contactlist.getHead();
-        while (current != null){
-            Contact contact = current.getData();
-             if(contact.getName().equalsIgnoreCase(Name)||contact.getPhoneNumber().equals(phoneNumber)){
-                return true ;
-             
-            }
-            current = current.next;
-            
-        }
-        return false;
-        
+  
     }
     public void addContact (Contact contact){
-     if (!contactexist(contact.getName(),contact.getPhoneNumber())){
-         Node newnode = new Node(contact);
-         contact.head = newnode;
-         
-     }
+     Contact newcontact = new Contact();
+     System.out.println(" enter the contacts name ");
+     newcontact.name = in.nextLine();
+        if (!contactlist .empty() && contactlist.search(newcontact))
+{
+        System.out.println("contact exist");
+        return;
+}
+System.out.println("enter contacts phone number")
+newcontact.phoneNumber = in.nextLine();
+if (!contactlist.empty()){
+contactlist.findfirst();
+for(int i = 0 ; i<contactlist.size ; i++){
+if (contactlist.retrieve().phoneNumber.compareTo(newcontact.phoneNumber)== 0){
+System.out.println("contact exist");
+return ;
+
+}
+contactlist.findNext();
+
+}
+
+
+
+
+}
+
+
+
+}
      public Contact searchcontact ( String criteria , String searchterm){
          Node current = contact.head;
          boolean find = false ; 

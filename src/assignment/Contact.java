@@ -8,7 +8,7 @@ package assignment;
  *
  * @author HUAWEI
  */
-public class Contact implements Comparable {
+public class Contact implements Comparable  {
     private String name ; 
     private String phoneNumber;
      private String emailAddress ; 
@@ -24,10 +24,17 @@ public class Contact implements Comparable {
         this.notes = notes;
     }
 
-    @Override
-    public int compareTo(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    public int compareTo(Contact otherContact) {
+        return this.name.compareTo(otherContact.name);
+      
     }
+  //  public boolean addEvent (Event e){
+        
+   // }
+   // public boolean removeEvent (String title ){
+        
+    //}
 
     public String getName() {
         return name;
