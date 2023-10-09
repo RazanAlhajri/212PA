@@ -37,6 +37,53 @@ public class Contact implements Comparable<Contact>
         return phoneNumber;
     }
 
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+    
+    public void setName(String name) 
+    {
+        this.name = name;
+    }
+
+    public void setPhoneNumber(String phoneNumber) 
+    {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmailAddress(String emailAddress) 
+    {
+        this.emailAddress = emailAddress;
+    }
+
+    public void setAddress(String address) 
+    {
+        this.address = address;
+    }
+
+    public void setBirthday(String birthday) 
+    {
+        this.birthday = birthday;
+    }
+
+    public void setNotes(String notes) 
+    {
+        this.notes = notes;
+    }
+    
+    
     @Override
     public int compareTo(Contact another)
     {
