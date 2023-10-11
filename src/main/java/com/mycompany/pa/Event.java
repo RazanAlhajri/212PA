@@ -1,4 +1,4 @@
-package com.mycompany.pa;
+package main.java.com.mycompany.pa;
 import java.util.Date;
 
 public class Event implements Comparable<Event> 
@@ -71,6 +71,3 @@ public String toString()
 }
 
 }// end class
-
-
-
