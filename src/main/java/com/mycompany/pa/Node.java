@@ -1,4 +1,4 @@
-package com.mycompany.pa;
+package main.java.com.mycompany.pa;
 public class Node<T>
 {
     public T data;
