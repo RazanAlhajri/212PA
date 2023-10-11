@@ -177,10 +177,8 @@ public class phoneBook
                if (contactsList.retrieve().getName().equalsIgnoreCase(delName))
                {
                    contactsList.remove(contactsList.retrieve());
-                   for(contactsList.getEventList())
-                   {
-                       
-                   }
+                   removeContactFromEvents(contactsList.retrieve());
+                   System.out.println("Contact deleted successfully!");
                    found = true;
                    return;
                }
@@ -190,6 +188,7 @@ public class phoneBook
             System.out.println("Contact not found");  
     }//end delete method
     
+            
     public static void eventSchedule()
     {
         Contact contact = new Contact();
