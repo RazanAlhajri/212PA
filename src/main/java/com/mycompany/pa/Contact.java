@@ -1,4 +1,4 @@
-package com.mycompany.pa;
+package main.java.com.mycompany.pa;
 
 public class Contact implements Comparable<Contact>
 {
@@ -8,7 +8,7 @@ public class Contact implements Comparable<Contact>
     private String address ;
     private String birthday ; 
     private String notes ;
-    private LinkedListADT<Event> eventList = new LinkedListADT <Event>();
+    private LinkedListADT<Event> eventList ;
 
     public Contact() 
     {
@@ -40,25 +40,30 @@ public class Contact implements Comparable<Contact>
         return phoneNumber;
     }
 
-    public String getEmailAddress() {
+    public String getEmailAddress() 
+    {
         return emailAddress;
     }
 
-    public String getAddress() {
+    public String getAddress() 
+    {
         return address;
     }
 
-    public String getBirthday() {
+    public String getBirthday() 
+    {
         return birthday;
     }
 
-    public String getNotes() {
+    public String getNotes() 
+    {
         return notes;
     }
 
-    /*public LinkedListADT<Event> getEventList() {
+    public LinkedListADT<Event> getEventList() 
+    {
         return eventList;
-    }*/
+    }
     
     public void setName(String name) 
     {
@@ -97,7 +102,7 @@ public class Contact implements Comparable<Contact>
            eventList.findfirst();
            for (int i=0; i<eventList.size;i++)
            {
-               if((eventList.retrieve().getDate().compareTo(event.getDate())== 0)&&(eventList.retrieve().getTime().compareTo(event.getTime())))
+               if((eventList.retrieve().getDate().compareTo(event.getDate())== 0)&&(eventList.retrieve().getTime().compareTo(event.getTime())==0))
                {
                    return false;  
                }
@@ -114,4 +119,11 @@ public class Contact implements Comparable<Contact>
     {
        return this.getName().compareTo(another.getName());
     }
+
+    @Override
+    public String toString() {
+        return "Contact{" + "name=" + name + ", phoneNumber=" + phoneNumber + ", emailAddress=" + emailAddress + ", address=" + address + ", birthday=" + birthday + ", notes=" + notes + '}';
+    }
+    
 }
+
