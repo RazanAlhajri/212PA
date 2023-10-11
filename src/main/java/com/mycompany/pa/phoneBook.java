@@ -170,25 +170,28 @@ public class phoneBook
            System.out.println("there is no contact!");
            return;
        }
+       
        boolean found = false;
        contactsList.findfirst();
        for (int i=0; i<contactsList.size;i++)
            {
+               Contact tmpContact = contactsList.retrieve(); 
+           
                if (contactsList.retrieve().getName().equalsIgnoreCase(delName))
                {
-                   contactsList.remove(contactsList.retrieve());
-                   removeContactFromEvents(contactsList.retrieve());
+                   contactsList.remove(tmpContact);
+                   Event eventOpj = eventsList.retrieve();
+                   eventOpj.removeContactFromEvents(tmpContact);
                    System.out.println("Contact deleted successfully!");
                    found = true;
                    return;
-               }
            }
         
         if (!found)
             System.out.println("Contact not found");  
+       }
     }//end delete method
     
-            
     public static void eventSchedule()
     {
         Contact contact = new Contact();
@@ -245,6 +248,51 @@ public class phoneBook
                 eventsList.findnext();
             }
             System.out.println(eventsList.retrieve().toString());
+        }
+    }
+    
+    public static void displayAllEvents()
+    {
+        int criteria = menuOpt5();
+        
+        switch(criteria)
+        {
+            case 1:
+                System.out.print("Enter the contact name: ");
+                String contactName = in.nextLine();
+
+                boolean contactFound = false;
+
+                for (int i=0; i<contactsList.size;i++)
+                {
+                if (contactsList.retrieve().getName().equalsIgnoreCase(contactName)) 
+                {
+                    contactFound = true;
+                    System.out.println("Contact found!");
+                    
+                    Contact currentContact = contactsList.retrieve();
+                    for (int j=0;i <currentContact.getEventList().size;j=0) 
+                    {
+                        if (!currentContact.getEventList().empty() && currentContact.getEventList().search(currentContact.getEventList().retrieve())) 
+                        {
+                            System.out.println(currentContact.getEventList().retrieve());
+                        }
+                    }
+
+                    if (currentContact.getEventList().empty()) 
+                    {
+                        System.out.println("No events found for this contact!");
+                    }
+
+                    break; 
+                }
+                
+                if (!contactFound) 
+                {
+                   System.out.println("Contact not found!");
+                }
+                break;
+                }
         }
     }
 }
