@@ -31,7 +31,7 @@ public class phoneBook
        return criteria;
     }
      
-    public void addContact(Contact contact)
+    public static void addContact()
     {
        
        Contact newcontact = new Contact();
