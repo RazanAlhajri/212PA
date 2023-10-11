@@ -7,7 +7,7 @@ public class Event implements Comparable<Event>
    Date date;
    String location;
    String time;
-   LinkedListADT <String> ContactNames;
+   LinkedListADT <Contact> Contacts;
 
 public Event(String title, Date date, String location, String time, LinkedListADT<String> ContactNames) 
 {
@@ -15,7 +15,7 @@ public Event(String title, Date date, String location, String time, LinkedListAD
    this.date = date;
    this.location = location;
    this.time = time;
-   this.ContactNames = new LinkedListADT<String>();
+   this.Contacts = new LinkedListADT<Contact>();
 }
 
 public Event() 
@@ -24,17 +24,22 @@ public Event()
    date = null;
    time = "";
    location = "";
-   this.ContactNames = new LinkedListADT <String>(); 
+   this.Contacts = new LinkedListADT <Contact>(); 
 }
 
     public Date getDate() {
         return date;
     }
 
-    public String getTime() {
+    public String getTime() 
+    {
         return time;
     }
 
+    public String getTitle() {
+        return title;
+    }
+    
 public void setTitle(String title) 
 {
    this.title = title;
@@ -50,6 +55,15 @@ public void setLocation(String location)
     this.location = location;
 }
 
+public boolean removeContactFromEvents(Contact c)
+{
+    return Contacts.remove(c)!=null;    
+}
+public boolean addContactToEvent(Contact c)
+{
+    return Contacts.sorting(c);
+}
+
 
 public int compareTo(Event e)// comparing two event titles 
 { 
@@ -61,10 +75,10 @@ public String toString()
 {
    String str = "Event: " + "title= " + title + ", date= " + date + ", location= " + location + ", time= " + time;
    int i = 0;
-   ContactNames.findfirst();
-   while(i < ContactNames.size) 
+   Contacts.findfirst();
+   while(i < Contacts.size) 
    {
-     str = str + ContactNames.retrieve() + " ";
+     str = str + Contacts.retrieve() + " ";
      i++;
    }
    return str;
