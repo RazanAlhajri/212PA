@@ -1,4 +1,4 @@
-package com.mycompany.pa;
+package main.java.com.mycompany.pa;
 
 import java.util.Scanner;
 import java.util.Date;
@@ -78,136 +78,114 @@ public class phoneBook
         boolean found = false;
       
         if(contactsList.empty())
-       {
+        {
            System.out.println("There no contact yet");
            return;
-       }
+        }
       
        
-           contactsList.findfirst();
-           int criteria = menuOpt2();
-           switch(criteria)
-           {
-               case 1:
-                   System.out.println("Enter the contact's name: ");
-                   String searchName = in.nextLine();
+        contactsList.findfirst();
+        int criteria = menuOpt2();
+        switch(criteria)
+        {
+            case 1:
+                System.out.println("Enter the contact's name: ");
+                String searchName = in.nextLine();
                    
-                   for (int i=0; i<contactsList.size;i++)
-                   {
-                       if (contactsList.retrieve().getName().compareTo(searchName)==0)
-                       {
-                          System.out.println("Contact found! \n" + contactsList.retrieve());
-                          found = true;
-                          break;
-                       }
-                       //contactsList.findnext();
-                   }
-                   break;
+                for (int i=0; i<contactsList.size;i++)
+                {
+                    if (contactsList.retrieve().getName().compareTo(searchName)==0)
+                    {
+                        System.out.println("Contact found! \n" + contactsList.retrieve());
+                        found = true;
+                        break;
+                    }    
+                }
+                  
                 
-               case 2:
-                   System.out.println("Enter the contact's phone number: ");
-                   String phone =in.nextLine();
+            case 2:
+                System.out.println("Enter the contact's phone number: ");
+                String phone =in.nextLine();
                    
-                   for (int i=0; i<contactsList.size;i++)
-                   {
-                      if (contactsList.retrieve().getPhoneNumber().compareTo(phone)==0)
-                       {
-                          System.out.println("Contact found! \n" + contactsList.retrieve());
-                          found = true;
-                          break;
-                       }
-                       //contactsList.findnext();
-                   }
-                   break; 
-                
-               case 3:
-                   System.out.println("Enter the contact's email address: ");
-                   String email = in.nextLine();
+                for (int i=0; i<contactsList.size;i++)
+                {
+                    if (contactsList.retrieve().getPhoneNumber().compareTo(phone)==0)
+                    {
+                        System.out.println("Contact found! \n" + contactsList.retrieve());
+                        found = true;
+                        break;
+                    }
+
+                }
+            case 3:
+                System.out.println("Enter the contact's email address: ");
+                String email = in.nextLine();
                    
-                   for (int i=0; i<contactsList.size;i++)
-                   {
-                      if (contactsList.retrieve().getEmailAddress().compareTo(email)==0)
-                       {
-                          System.out.println("Contact found! \n" + contactsList.retrieve());
-                          found = true;
-                          break;
-                       }
-                       //contactsList.findnext();
-                   }
-                   break; 
-               
-               case 4:
-                   System.out.println("Enter the contact's address: ");
-                   String address = in.nextLine();
+                for (int i=0; i<contactsList.size;i++)
+                {
+                    if (contactsList.retrieve().getEmailAddress().compareTo(email)==0)
+                    {
+                        System.out.println("Contact found! \n" + contactsList.retrieve());
+                        found = true;
+                        break;
+                    } 
+                }
+            case 4:
+                System.out.println("Enter the contact's address: ");
+                String address = in.nextLine();
                    
-                   for (int i=0; i<contactsList.size;i++)
-                   {
-                      if (contactsList.retrieve().getAddress().compareTo(address)==0)
-                       {
-                          System.out.println("Contact found! \n" + contactsList.retrieve());
-                          found = true;
-                          break;
-                       }
-                       //contactsList.findnext();
-                   }
-                   break; 
-                
-               case 5:
-                   System.out.println("Enter the contact's birthday: ");
-                   String birthday = in.nextLine();
+                for (int i=0; i<contactsList.size;i++)
+                {
+                    if (contactsList.retrieve().getAddress().compareTo(address)==0)
+                    {
+                        System.out.println("Contact found! \n" + contactsList.retrieve());
+                        found = true;
+                        break;
+                    } 
+                }
+            case 5:
+                System.out.println("Enter the contact's birthday: ");
+                String birthday = in.nextLine();
                    
-                   for (int i=0; i<contactsList.size;i++)
-                   {
-                      if (contactsList.retrieve().getBirthday().compareTo(birthday)==0)
-                       {
-                          System.out.println("Contact found! \n" + contactsList.retrieve());
-                          found = true;
-                          break;
-                       }
-                       //contactsList.findnext();
-                   }
-                   break; 
-           }
+                for (int i=0; i<contactsList.size;i++)
+                {
+                    if (contactsList.retrieve().getBirthday().compareTo(birthday)==0)
+                    {
+                        System.out.println("Contact found! \n" + contactsList.retrieve());
+                        found = true;
+                        break;
+                    }
+                }
+        }//end switch
            
-       if (!found)
-           System.out.println("Contact not found");  
-    }
+        if (!found)
+            System.out.println("Contact not found");  
+    }//end search method
     
-    public static void delAContact()
-    {
-       Contact contactToDelete = new Contact();
+    //we assume that delete a contact is depend on the contact name
+    public static void delAContact(String delName)
+    { 
        if (contactsList.empty()) 
        {
            System.out.println("there is no contact!");
            return;
        }
-       //we assume that delete a contact is depend on the contact name
-       System.out.println("Enter the contact's name: ");
-       contactToDelete.setName(in.nextLine());
-       
-       contactToDelete = contactsList.remove(contactToDelete);
-       if(contactToDelete==null)
-       {
-           System.out.println("Contact not found!");
-           return;
-       }
-       
-       else
-       {
-           removeContactFromEvents(contactToDelete);
-           
-       {
-           contactToDelete.getEventList().findfirst();
-           for (int i=0; i<contactToDelete.getEventList().size;i++)
+       boolean found = false;
+       contactsList.findfirst();
+       for (int i=0; i<contactsList.size;i++)
            {
-               Event events = contactToDelete.getEventList().retrieve();
-               if ()
+               if (contactsList.retrieve().getName().equalsIgnoreCase(delName))
+               {
+                   contactsList.remove(contactsList.retrieve());
+                   System.out.println("Contact deleted successfully!");
+                   found = true;
+                   return;
+               }
            }
-           
-           }
-        }
-   
-    }
+        
+        if (!found)
+            System.out.println("Contact not found");  
+    }//end delete method
     
     public static void eventSchedule()
     {
@@ -217,7 +195,7 @@ public class phoneBook
         System.out.println("Enter event title: ");
         event.setTitle(in.nextLine());
         
-        System.out.println("Enter event title: ");
+        System.out.println("Enter contact name: ");
         contact.setName(in.nextLine());
         
         if(!contactsList.empty() && contactsList.search(contact)== true)
@@ -229,11 +207,42 @@ public class phoneBook
             event.setLocation(in.nextLine());
             
             contact = contactsList.retrieve();
-            
-            
-            
-            
+            if(contact.addEvent(event))
+            {
+                System.out.println("Contact has a conflit");
+            }
+            else
+            {
+                System.out.println("Evet added successfully!");  
+            }
         }
-    }  
- 
+    }//end schedule method 
+    
+    public static void displayContactsByFirstName(String name)
+    {
+        if(contactsList.empty())
+            System.out.println("there is no contact!");
+        contactsList.findfirst();
+        for (int i=0; i<contactsList.size;i++)
+        {
+            String [] names = contactsList.retrieve().getName().split(" ");
+            if (names.length>0&&names[0].equalsIgnoreCase(name))
+                System.out.println(contactsList.retrieve().toString());
+        }  
+    }
+    
+    public static void displayAllEventsAlphabetically()
+    {
+        if (eventsList.empty())
+            System.out.println("There is no envent!");
+        else
+        {
+            while(!eventsList.last())
+            {
+                System.out.println(eventsList.retrieve().toString());
+                eventsList.findnext();
+            }
+            System.out.println(eventsList.retrieve().toString());
+        }
+    }
 }
