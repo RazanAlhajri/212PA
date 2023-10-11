@@ -1,6 +1,6 @@
 package main.java.com.mycompany.pa;
 
-public class Contact implements Comparable<Contact>
+public class Contact implements Comparable <Contact>
 {
     private String name ; 
     private String phoneNumber;
@@ -110,6 +110,17 @@ public class Contact implements Comparable<Contact>
         }
         eventList.sorting(event);
         return true;
+    }
+    
+    public boolean delEvent(String title)
+    {
+        Event eventToDel = new Event();
+        eventToDel.setTitle(title);
+        
+        if(!eventList.empty()&&eventList.remove(eventToDel)!=null)
+            return true;
+        
+        return false;
     }
     
     
