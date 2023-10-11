@@ -177,7 +177,10 @@ public class phoneBook
                if (contactsList.retrieve().getName().equalsIgnoreCase(delName))
                {
                    contactsList.remove(contactsList.retrieve());
-                   System.out.println("Contact deleted successfully!");
+                   for(contactsList.getEventList())
+                   {
+                       
+                   }
                    found = true;
                    return;
                }
