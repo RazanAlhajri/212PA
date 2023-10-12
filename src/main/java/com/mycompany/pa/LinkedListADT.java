@@ -18,7 +18,7 @@ public class LinkedListADT <T extends Comparable<T>>
     {
        return current.next == null ; 
     }
- 
+
     public boolean full()
     {
        return false ;    
@@ -48,7 +48,7 @@ public class LinkedListADT <T extends Comparable<T>>
        }
        size++;
     }
- 
+
     public boolean sorting (T value )
     {
        Node <T> temp ; 
