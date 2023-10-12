@@ -9,7 +9,7 @@ public class phoneBook
     public static LinkedListADT <Contact> contactsList = new LinkedListADT <Contact>() ;
     public static LinkedListADT<Event> eventsList = new LinkedListADT <Event>();
 
-    public static int mainMenue()
+    public static int mainMenu()
     {
         System.out.println("1. Add a contact\n" +"2. Search for a contact\n" +"3. Delete a contact\n" +"4. Schedule an event\n" 
                            +"5. Print event details\n" +"6. Print contacts by first name\n" +"7. Print all events alphabetically\n" +"8. Exit");
@@ -38,6 +38,7 @@ public class phoneBook
        
        System.out.println("Enter the contact's name: ");
        newcontact.setName(in.nextLine());
+       in.nextLine();
        if (/*!contactlist .empty() &&*/ contactsList.search(newcontact))
        {
           System.out.println("contact exist");
@@ -56,7 +57,6 @@ public class phoneBook
                 System.out.println("contact exist");
                 return ;
              }
-             contactsList.findnext();
           }
         }
        
@@ -71,7 +71,9 @@ public class phoneBook
        
        System.out.println("Enter any notes for the contact: ");
        newcontact.setNotes(in.nextLine());
+       contactsList.insert(newcontact);
     }
+    
     
     public static void searchContact()
     {
@@ -232,7 +234,7 @@ public class phoneBook
         {
             String [] names = contactsList.retrieve().getName().split(" ");
             if (names.length>0&&names[0].equalsIgnoreCase(name))
-                System.out.println(contactsList.retrieve().toString());
+                System.out.println(contactsList.retrieve());
         }  
     }
     
