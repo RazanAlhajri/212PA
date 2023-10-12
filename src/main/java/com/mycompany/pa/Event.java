@@ -29,7 +29,7 @@ public Event()
 
     public Date getDate() {
         return date;
-    }
+   }
 
     public String getTime() 
     {
